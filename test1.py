@@ -1,2 +1,3 @@
 print('cau')
-#cau
+# cau
+print(2 + 2)
