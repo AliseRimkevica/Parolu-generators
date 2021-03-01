@@ -1,3 +1,4 @@
-print('cau')
-# cau
-print(2 + 2)
+import string
+vards = str(input("Ievadi: "))
+print(vards)
+
