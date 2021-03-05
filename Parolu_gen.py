@@ -1,4 +1,6 @@
 # Atkartosana ir runa par visas kopejas programmas atkartosanu
+from random import random, randint
+
 atkartosana = 1
 
 while atkartosana == 1:
@@ -37,6 +39,10 @@ while atkartosana == 1:
             vaiDatoraGenCip = str(input("Vai vēlaties, lai jaunajā parolē tiktu iekļauti datora ģenerēti cipari (J/N)? \n"))
             if vaiDatoraGenCip == 'J' or vaiDatoraGenCip == 'j':
                 vaiDatoraGenCipAtkartot = 0
+                #te genere random ciparu no 1 lidz 10
+                for x in range(3):
+                    randomCipars = randint(0, 10)
+                    print(randomCipars)
                 print("Jūsu parolē TIKS iekļauti programmas brīvi izvēlēti cipari.")
             elif vaiDatoraGenCip == 'N' or vaiDatoraGenCip == 'n':
                 vaiDatoraGenCipAtkartot = 0
@@ -66,6 +72,15 @@ while atkartosana == 1:
                 vaiLielieBAtkartot = 0
                 print("Jūsu parolē NETIKS iekļauti lielie burti.")
 
+#tipa izdrukaa paroli
+        def findLen(str):
+            counter = 0
+            while str[counter:]:
+                counter += 1
+            return counter
+
+        str = customVards+customCipars
+        print(findLen(str))
 
         atkartosana = int(input("Vai vēlaties atgriezties uz sākumu (1), vai iziet (2)? \n"))
     elif a == 2:
