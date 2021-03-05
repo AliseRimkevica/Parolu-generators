@@ -40,7 +40,7 @@ while atkartosana == 1:
             if vaiDatoraGenCip == 'J' or vaiDatoraGenCip == 'j':
                 vaiDatoraGenCipAtkartot = 0
                 #te genere random ciparu no 1 lidz 10
-                for x in range(3):
+                for x in range(zSkaits-len(customVards)-len(customCipars)):
                     randomCipars = randint(0, 10)
                     print(randomCipars)
                 print("Jūsu parolē TIKS iekļauti programmas brīvi izvēlēti cipari.")
@@ -79,7 +79,7 @@ while atkartosana == 1:
                 counter += 1
             return counter
 
-        str = customVards+customCipars
+        str = customVards+customCipars+randomCipars
         print(findLen(str))
 
         atkartosana = int(input("Vai vēlaties atgriezties uz sākumu (1), vai iziet (2)? \n"))
