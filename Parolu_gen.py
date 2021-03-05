@@ -42,6 +42,31 @@ while atkartosana == 1:
                 vaiDatoraGenCipAtkartot = 0
                 print("Jūsu parolē NETIKS iekļauti programmas brīvi izvēlēti cipari.")
 
+#Te sākas par to vai lietotajs grib simbolus/lielos burtus
+        vaiDatoraGenSimbAtkartot = 1
+        while vaiDatoraGenSimbAtkartot == 1:
+
+            vaiDatoraGenSimb = input("Vai vēlaties, lai jaunajā parolē tiktu iekļauti datora ģenerēti simboli (J/N)? \n")
+            if vaiDatoraGenSimb == 'J' or vaiDatoraGenSimb == 'j':
+                vaiDatoraGenSimbAtkartot = 0
+                print("Jūsu parolē TIKS iekļauti programmas brīvi izvēlēti simboli.")
+            elif vaiDatoraGenSimb == 'N' or vaiDatoraGenSimb == 'n':
+                vaiDatoraGenSimbAtkartot = 0
+                print("Jūsu parolē NETIKS iekļauti programmas brīvi izvēlēti simboli.")
+
+
+        vaiLielieBAtkartot = 1
+        while vaiLielieBAtkartot == 1:
+
+            vaiLielieB = input("Vai vēlaties, lai jaunajā parolē tiktu iekļauti lielie burti (J/N)? \n")
+            if vaiLielieB == 'J' or vaiLielieB == 'j':
+                vaiLielieBAtkartot = 0
+                print("Jūsu parolē TIKS iekļauti lielie burti.")
+            elif vaiLielieB == 'N' or vaiLielieB == 'n':
+                vaiLielieBAtkartot = 0
+                print("Jūsu parolē NETIKS iekļauti lielie burti.")
+
+
         atkartosana = int(input("Vai vēlaties atgriezties uz sākumu (1), vai iziet (2)? \n"))
     elif a == 2:
         # Te vēl nekas nav :)
