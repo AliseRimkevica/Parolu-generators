@@ -1,5 +1,7 @@
 # Atkartosana ir runa par visas kopejas programmas atkartosanu
-from random import random, randint
+import string
+from random import random, randint, choice
+from string import punctuation
 
 atkartosana = 1
 
@@ -39,10 +41,10 @@ while atkartosana == 1:
             vaiDatoraGenCip = str(input("Vai vēlaties, lai jaunajā parolē tiktu iekļauti datora ģenerēti cipari (J/N)? \n"))
             if vaiDatoraGenCip == 'J' or vaiDatoraGenCip == 'j':
                 vaiDatoraGenCipAtkartot = 0
-                #te genere random ciparu no 1 lidz 10
+                #te genere random ciparu no 1 lidz 9
                 for x in range(zSkaits-len(customVards)-len(customCipars)):
-                    randomCipars = randint(0, 10)
-                    print(randomCipars)
+                    randomCipars = randint(0, 9)
+                    print(randomCipars) #pagaidam printee, pec tam novaksim
                 print("Jūsu parolē TIKS iekļauti programmas brīvi izvēlēti cipari.")
             elif vaiDatoraGenCip == 'N' or vaiDatoraGenCip == 'n':
                 vaiDatoraGenCipAtkartot = 0
@@ -55,6 +57,15 @@ while atkartosana == 1:
             vaiDatoraGenSimb = input("Vai vēlaties, lai jaunajā parolē tiktu iekļauti datora ģenerēti simboli (J/N)? \n")
             if vaiDatoraGenSimb == 'J' or vaiDatoraGenSimb == 'j':
                 vaiDatoraGenSimbAtkartot = 0
+                #for x in range(zSkaits - len(customVards) - len(customCipars)):
+                    #simbArray=str[]
+                    #print(random.choice('*','-','!','@'))
+                    #string = "*-!@&?"
+                    #array = []
+                    #for c in string:
+                     #array += [c]
+                    #print(array[random.randint(0, len(array) - 1)])
+
                 print("Jūsu parolē TIKS iekļauti programmas brīvi izvēlēti simboli.")
             elif vaiDatoraGenSimb == 'N' or vaiDatoraGenSimb == 'n':
                 vaiDatoraGenSimbAtkartot = 0
@@ -71,6 +82,8 @@ while atkartosana == 1:
             elif vaiLielieB == 'N' or vaiLielieB == 'n':
                 vaiLielieBAtkartot = 0
                 print("Jūsu parolē NETIKS iekļauti lielie burti.")
+
+
 
 #tipa izdrukaa paroli
         def findLen(str):
