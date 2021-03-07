@@ -24,6 +24,7 @@ while atkartosana == 1:
                 # Znachit bus lietotaja izveleti vardi un cipari
                 vaiVardusCiparusAtkartot = 0
                 customVards = str(input("Ievadi sevis izvēlēto vārdu (ievadi Enter, ja nevēlies): \n"))
+
                 customCipars = str(input("Ievadi sevis izvēlēto ciparu (ievadi Enter, ja nevēlies): \n"))
                 print("Tavs izvēlētais vārds ir:", customVards)
                 print("Tavs izvēlētais cipars ir:", customCipars)
@@ -44,7 +45,7 @@ while atkartosana == 1:
                 #te genere random ciparu no 1 lidz 9
                 for x in range(zSkaits-len(customVards)-len(customCipars)):
                     randomCipars = randint(0, 9)
-                    print(randomCipars) #pagaidam printee, pec tam novaksim
+                    #print(randomCipars) #pagaidam printee, pec tam novaksim
                 print("Jūsu parolē TIKS iekļauti programmas brīvi izvēlēti cipari.")
             elif vaiDatoraGenCip == 'N' or vaiDatoraGenCip == 'n':
                 vaiDatoraGenCipAtkartot = 0
@@ -59,13 +60,12 @@ while atkartosana == 1:
                 vaiDatoraGenSimbAtkartot = 0
                 #for x in range(zSkaits - len(customVards) - len(customCipars)):
                     #simbArray=str[]
-                    #print(random.choice('*','-','!','@'))
-                    #string = "*-!@&?"
-                    #array = []
-                    #for c in string:
-                     #array += [c]
-                    #print(array[random.randint(0, len(array) - 1)])
-
+                #print(random.choice('*','-','!','@'))
+                #string = "*-!@&?"
+                #array = []
+                #for c in string:
+                    #array += [c]
+                   # print(array[random.randint(0, len(array) - 1)])
                 print("Jūsu parolē TIKS iekļauti programmas brīvi izvēlēti simboli.")
             elif vaiDatoraGenSimb == 'N' or vaiDatoraGenSimb == 'n':
                 vaiDatoraGenSimbAtkartot = 0
@@ -86,14 +86,15 @@ while atkartosana == 1:
 
 
 #tipa izdrukaa paroli
-        def findLen(str):
-            counter = 0
-            while str[counter:]:
-                counter += 1
-            return counter
+       # def findLen(str):
+            #counter = 0
+            #while str[counter:]:
+                #counter += 1
+            #return counter
 
-        str = customVards+customCipars+randomCipars
-        print(findLen(str))
+
+        print("Jūsu parole ir: ",customVards,customCipars,randomCipars) #pagaidām iedod tikai vienu random ciparu
+        #print(findLen(str))
 
         atkartosana = int(input("Vai vēlaties atgriezties uz sākumu (1), vai iziet (2)? \n"))
     elif a == 2:
