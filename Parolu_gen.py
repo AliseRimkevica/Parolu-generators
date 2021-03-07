@@ -1,5 +1,6 @@
 # Atkartosana ir runa par visas kopejas programmas atkartosanu
 import string
+import re
 from random import random, randint, choice
 from string import punctuation
 
@@ -97,9 +98,60 @@ while atkartosana == 1:
         #print(findLen(str))
 
         atkartosana = int(input("Vai vēlaties atgriezties uz sākumu (1), vai iziet (2)? \n"))
+
+
     elif a == 2:
-        # Te vēl nekas nav :)
-        print("šeit būs paroles drošības pārbaude")
+        # Te sākam testēt esošas paroles drošību
+        userPassword = input("Ievadiet paroli, kuru vēlaties pārbaudīt: ")
+
+        if len(userPassword) >= 12:  # testējam paroles garumu
+            parolesDrosGarums = 20
+        elif len(userPassword) >= 8:
+            parolesDrosGarums = 10
+        elif len(userPassword) < 8:
+            parolesDrosGarums = 0
+       # print(parolesDrosGarums)  # šī rinda tikai testam
+
+        contains_digit = False  # chekojam, vai satur ciparu parole
+        parolesDrosCip = 0
+        for character in userPassword:
+            if character.isdigit():
+                contains_digit = True
+                parolesDrosCip = 10
+            elif character.isdigit():
+                contains_digit = False
+                parolesDrosCip = parolesDrosCip
+        #print(contains_digit, parolesDrosCip)  # šī rinda tikai testam
+
+        contains_upper = False  # pārbaudam vai ir kāds big burts
+        parolesDrosBigBurts = 0
+        for bigBurts in userPassword:
+            if bigBurts.isupper():
+                contains_upper = True
+                parolesDrosBigBurts = 10
+            elif bigBurts.isupper():
+                contains_upper = False
+                parolesDrosBigBurts = parolesDrosBigBurts
+        #print( contains_upper, parolesDrosBigBurts)  # šī rinda tikai testam
+
+        # skatamies vai ir simbols parolee
+        regex = re.compile('[@_!#$%^&*()<>?/\|}{~:]')
+        if (regex.search(userPassword) == None):
+            parolesDrosSimb = 0
+        else:
+            parolesDrosSimb = 10
+
+        #print(parolesDrosSimb)  # šī rinda tikai testam
+
+        parolesDrosiba = parolesDrosGarums + parolesDrosCip + parolesDrosBigBurts + parolesDrosSimb
+        if parolesDrosiba == 50:
+            print("Jūsu parole ir ĻOTI DROŠA")
+        elif parolesDrosiba >= 40:
+            print("Jūsu parole ir DROŠA")
+        elif parolesDrosiba >= 30:
+            print("Jūsu parole ir VIDĒJA")
+        elif parolesDrosiba < 30:
+            print("Jūsu parole ir VĀJA")
         atkartosana = int(input("Vai vēlaties atgriezties uz sākumu (1), vai iziet (2)? \n"))
     else:
         atkartosana = 1
