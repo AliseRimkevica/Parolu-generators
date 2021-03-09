@@ -1,7 +1,7 @@
 # Atkartosana ir runa par visas kopejas programmas atkartosanu
 import string
 import re
-from random import random, randint, choice
+import random
 from string import punctuation
 
 atkartosana = 1
@@ -45,7 +45,7 @@ while atkartosana == 1:
                 vaiDatoraGenCipAtkartot = 0
                 #te genere random ciparu no 1 lidz 9
                 for x in range(zSkaits-len(customVards)-len(customCipars)):
-                    randomCipars = randint(0, 9)
+                    randomCipars = random.randint(0, 9)
                     #print(randomCipars) #pagaidam printee, pec tam novaksim
                 print("Jūsu parolē TIKS iekļauti programmas brīvi izvēlēti cipari.")
             elif vaiDatoraGenCip == 'N' or vaiDatoraGenCip == 'n':
@@ -59,14 +59,14 @@ while atkartosana == 1:
             vaiDatoraGenSimb = input("Vai vēlaties, lai jaunajā parolē tiktu iekļauti datora ģenerēti simboli (J/N)? \n")
             if vaiDatoraGenSimb == 'J' or vaiDatoraGenSimb == 'j':
                 vaiDatoraGenSimbAtkartot = 0
-                #for x in range(zSkaits - len(customVards) - len(customCipars)):
+                for x in range(zSkaits - len(customVards) - len(customCipars)):
                     #simbArray=str[]
-                #print(random.choice('*','-','!','@'))
-                #string = "*-!@&?"
-                #array = []
-                #for c in string:
-                    #array += [c]
-                   # print(array[random.randint(0, len(array) - 1)])
+               # print(random.choice('*','-','!','@'))
+                    string = "*-!@&?"
+                    array = []
+                    for c in string:
+                        array += [c]
+                    print(array[random.randint(0, len(array) - 1)])
                 print("Jūsu parolē TIKS iekļauti programmas brīvi izvēlēti simboli.")
             elif vaiDatoraGenSimb == 'N' or vaiDatoraGenSimb == 'n':
                 vaiDatoraGenSimbAtkartot = 0
@@ -94,7 +94,7 @@ while atkartosana == 1:
             #return counter
 
 
-        print("Jūsu parole ir: ",customVards,customCipars,randomCipars) #pagaidām iedod tikai vienu random ciparu
+            print("Jūsu parole ir: ",customVards,customCipars,randomCipars) #pagaidām iedod tikai vienu random ciparu
         #print(findLen(str))
 
         atkartosana = int(input("Vai vēlaties atgriezties uz sākumu (1), vai iziet (2)? \n"))
@@ -105,7 +105,7 @@ while atkartosana == 1:
         userPassword = input("Ievadiet paroli, kuru vēlaties pārbaudīt: ")
 
         if len(userPassword) >= 12:  # testējam paroles garumu
-            parolesDrosGarums = 20
+            parolesDrosGarums = 20 #principaa katram drošības līmenim piešķiram noteiktu punktu skaitu
         elif len(userPassword) >= 8:
             parolesDrosGarums = 10
         elif len(userPassword) < 8:
