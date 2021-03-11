@@ -4,11 +4,16 @@ from typing import Any
 import string
 import re
 import random
-import secrets  # Šitas ir laikam drošāks paroļu ģenerēšanai nekā random funkcija
+import secrets
 
 from string import punctuation
 
 atkartosana = 1
+
+print("\n############################################\n")
+print("Paroļu ģenerators / paroļu drošības pārbaude\n")
+print("Alise Rimkēviča           Niks Rūdolfs Neija\n")
+print("############################################\n")
 
 while atkartosana == 1:
     a = int(input("Vai vēlaties ģenerēt jaunu paroli (1), vai arī pārbaudīt savas paroles drošību (2)?\n"))
