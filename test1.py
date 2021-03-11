@@ -1,4 +1,5 @@
+import secrets
 import string
-vards = str(input("Ievadi: "))
-print(vards)
 
+vards = ''
+print(len(vards))
