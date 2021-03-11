@@ -15,8 +15,8 @@ print("Alise Rimkēviča           Niks Rūdolfs Neija\n")
 print("############################################\n")
 
 while atkartosana == 1:
-    a = int(input("Vai vēlaties ģenerēt jaunu paroli (1), vai arī pārbaudīt savas paroles drošību (2)?\n"))
-    if a == 1:
+    a = str(input("Vai vēlaties ģenerēt jaunu paroli (1), vai arī pārbaudīt savas paroles drošību (2)?\n"))
+    if a == "1":
 
         parole = []
         customVards = ''
@@ -130,7 +130,7 @@ while atkartosana == 1:
 
         atkartosana = int(input("Vai vēlaties atgriezties uz sākumu (1), vai iziet (2)? \n"))
 
-    elif a == 2:
+    elif a == "2":
         # Te sākam testēt esošas paroles drošību
         userPassword = input("Ievadiet paroli, kuru vēlaties pārbaudīt: ")
 
@@ -184,4 +184,5 @@ while atkartosana == 1:
             print("Jūsu parole ir VĀJA")
         atkartosana = int(input("Vai vēlaties atgriezties uz sākumu (1), vai iziet (2)? \n"))
     else:
+        print("Ievadīta nepareizā vērtība. \n")
         atkartosana = 1
