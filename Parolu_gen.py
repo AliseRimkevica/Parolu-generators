@@ -1,11 +1,10 @@
 # Atkartosana ir runa par visas kopejas programmas atkartosanu
-from typing import Any
+
 import string
 import re
 import random
 import secrets
 
-from string import punctuation
 
 atkartosana = 1
 
@@ -151,7 +150,6 @@ while atkartosana == 1:
             elif character.isdigit():
                 contains_digit = False
                 parolesDrosCip = parolesDrosCip
-        # print(contains_digit, parolesDrosCip)  # šī rinda tikai testam
 
         contains_upper = False  # pārbaudam vai ir kāds big burts
         parolesDrosBigBurts = 0
@@ -162,7 +160,6 @@ while atkartosana == 1:
             elif bigBurts.isupper():
                 contains_upper = False
                 parolesDrosBigBurts = parolesDrosBigBurts
-        # print( contains_upper, parolesDrosBigBurts)  # šī rinda tikai testam
 
         # skatamies vai ir simbols parolee
         regex = re.compile('[@_!#$%^&*()<>?/\|}{~:]')
@@ -171,7 +168,6 @@ while atkartosana == 1:
         else:
             parolesDrosSimb = 10
 
-        # print(parolesDrosSimb)  # šī rinda tikai testam
 
         parolesDrosiba = parolesDrosGarums + parolesDrosCip + parolesDrosBigBurts + parolesDrosSimb
         if parolesDrosiba == 50:
