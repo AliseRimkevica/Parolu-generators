@@ -1,6 +1,5 @@
 # Atkartosana ir runa par visas kopejas programmas atkartosanu
 from typing import Any
-
 import string
 import re
 import random
