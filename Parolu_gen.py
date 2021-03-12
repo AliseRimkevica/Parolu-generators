@@ -5,16 +5,17 @@ import re
 import random
 import secrets
 
-
 atkartosana = 1
 
-print("\n############################################\n")
+print("############################################")
 print("Paroļu ģenerators / paroļu drošības pārbaude\n")
-print("Alise Rimkēviča           Niks Rūdolfs Neija\n")
+print("Alise Rimkēviča           Niks Rūdolfs Neija")
 print("############################################\n")
 
 while atkartosana == 1:
+
     a = int(input("Vai vēlaties ģenerēt jaunu paroli (1), vai arī pārbaudīt savas paroles drošību (2)?\n"))
+
     if a == 1:
 
         parole = []
@@ -25,7 +26,17 @@ while atkartosana == 1:
         randomLieliBGarums = 0
 
         # Par zīmju skaitu
-        zSkaits = int(input("Cik garu paroli vēlēsieties izveidot (zīmju skaits)(min 3 simb.)?\n"))
+        while True:
+            try:
+                zSkaits = int(input("Cik garu paroli vēlēsieties izveidot (zīmju skaits)(min 3 simb.)?\n"))
+                assert 3 <= zSkaits
+                break
+            except ValueError:
+                print("Lūdzu ievadiet tikai ciparu / skaitli.")
+                continue
+            except AssertionError:
+                print("Lūdzu ievadiet skaitli / ciparu, kas ir lielāks vai vienāds ar 3.")
+                continue
         print("parolē būs", zSkaits, "zīmes")
 
         # Par vārdu / ciparu iekļaušanu jā / nē
@@ -63,14 +74,19 @@ while atkartosana == 1:
 
             vaiDatoraGenCip = str(
                 input("Vai vēlaties, lai jaunajā parolē tiktu iekļauti datora ģenerēti cipari (J/N)? \n"))
+
             if vaiDatoraGenCip == 'J' or vaiDatoraGenCip == 'j':
+
                 vaiDatoraGenCipAtkartot = 0
                 # te genere random ciparu no 1 lidz 9
-                randomCiparsGarums = zSkaits - len(customVards) - len(customCipars) - 2
-                for x in range(randomCiparsGarums):
-                    ciparini = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, ]
-                    randomCipars = str(secrets.choice(ciparini))
-                    parole.append(randomCipars)
+                if (zSkaits - len(customVards) - len(customCipars)) < 2:
+                    print("Parolē ir pārāk maz vietas, lai iekļautu ciparus.")
+                else:
+                    randomCiparsGarums = random.randint(1, (zSkaits - len(customVards) - len(customCipars)))
+                    for x in range(randomCiparsGarums):
+                        ciparini = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, ]
+                        randomCipars = str(secrets.choice(ciparini))
+                        parole.append(randomCipars)
 
                 print("Jūsu parolē TIKS iekļauti programmas brīvi izvēlēti cipari.")
 
@@ -85,47 +101,61 @@ while atkartosana == 1:
             vaiDatoraGenSimb = input(
                 "Vai vēlaties, lai jaunajā parolē tiktu iekļauti datora ģenerēti simboli (J/N)? \n")
             if vaiDatoraGenSimb == 'J' or vaiDatoraGenSimb == 'j':
+
                 vaiDatoraGenSimbAtkartot = 0
-                randomSimbGarums = zSkaits - len(customVards) - len(customCipars) - randomCiparsGarums - 1
-                for x in range(randomSimbGarums):
 
-                    simbolini = ['!', '@', '#', '$', '%', '^', '&', '*']
-                    simbols = secrets.choice(simbolini)
-                    parole.append(simbols)
+                if (
+                                zSkaits - len(customVards) - len(customCipars) - randomCiparsGarums) < 2:
+                    print("Parolē ir pārāk maz vietas, lai iekļautu simbolus.")
+                else:
+                    randomSimbGarums = random.randint(1, (
+                                zSkaits - len(customVards) - len(customCipars) - randomCiparsGarums))
+                    for x in range(randomSimbGarums):
+                        simbolini = ['!', '@', '#', '$', '%', '^', '&', '*']
+                        simbols = secrets.choice(simbolini)
+                        parole.append(simbols)
 
-                print("Jūsu parolē TIKS iekļauti programmas brīvi izvēlēti simboli.")
+                    print("Jūsu parolē TIKS iekļauti programmas brīvi izvēlēti simboli.")
 
             elif vaiDatoraGenSimb == 'N' or vaiDatoraGenSimb == 'n':
                 vaiDatoraGenSimbAtkartot = 0
                 print("Jūsu parolē NETIKS iekļauti programmas brīvi izvēlēti simboli.")
 
         vaiLielieBAtkartot = 1
+
         while vaiLielieBAtkartot == 1:
 
             vaiLielieB = input("Vai vēlaties, lai jaunajā parolē tiktu iekļauti lielie burti (J/N)? \n")
-            if vaiLielieB == 'J' or vaiLielieB == 'j':
-                vaiLielieBAtkartot = 0
-                randomLieliBGarums = zSkaits - len(customVards) - len(
-                    customCipars) - randomCiparsGarums - randomSimbGarums
-                for x in range(randomLieliBGarums):
 
-                    randomLielaisBurts = secrets.choice(string.ascii_uppercase)
-                    parole.append(randomLielaisBurts)
+            if vaiLielieB == 'J' or vaiLielieB == 'j':
+
+                vaiLielieBAtkartot = 0
+
+                if (zSkaits - len(customVards) - len(
+                        customCipars) - randomCiparsGarums - randomSimbGarums) < 2:
+                    print("Parolē ir pārāk maz vietas, lai iekļautu lielos burtus.")
+                else:
+                    randomLieliBGarums = random.randint(0, (zSkaits - len(customVards) - len(
+                        customCipars) - randomCiparsGarums - randomSimbGarums))
+
+                    for x in range(randomLieliBGarums):
+                        randomLielaisBurts = secrets.choice(string.ascii_uppercase)
+                        parole.append(randomLielaisBurts)
 
                 print("Jūsu parolē TIKS iekļauti lielie burti.")
+
             elif vaiLielieB == 'N' or vaiLielieB == 'n':
                 vaiLielieBAtkartot = 0
                 print("Jūsu parolē NETIKS iekļauti lielie burti.")
 
         for x in range(zSkaits - len(customVards) - len(
                 customCipars) - randomCiparsGarums - randomSimbGarums - randomLieliBGarums):
-
             randomMazaisBurts = secrets.choice(string.ascii_lowercase)
             parole.append(randomMazaisBurts)
 
         random.shuffle(parole)
         galaParole = ''.join(parole)
-        print(galaParole)
+        print("\n       Jūsu ģenerētā parole ir:", galaParole, "\n")
 
         atkartosana = int(input("Vai vēlaties atgriezties uz sākumu (1), vai iziet (2)? \n"))
 
@@ -167,7 +197,6 @@ while atkartosana == 1:
             parolesDrosSimb = 0
         else:
             parolesDrosSimb = 10
-
 
         parolesDrosiba = parolesDrosGarums + parolesDrosCip + parolesDrosBigBurts + parolesDrosSimb
         if parolesDrosiba == 50:
